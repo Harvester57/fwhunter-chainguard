@@ -1,5 +1,5 @@
 # Cf. https://hub.docker.com/r/chainguard/python/
-FROM chainguard/python:latest-dev@sha256:6c82297e237072211675dd4edfb4d527d02b6cadac250bb0370bdbccae86b826 AS builder
+FROM chainguard/python:latest-dev@sha256:9f901a0f1896bf5f44cc8a17f020be759435f8e2dfe848eadadf75e276474cb1 AS builder
 
 ENV LANG=C.UTF-8
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -12,10 +12,10 @@ RUN python -m venv /fwhunt/venv
 # Cf. https://pypi.org/project/fwhunt-scan/
 RUN pip install fwhunt-scan==2.3.8 --no-cache-dir
 
-FROM chainguard/python:latest@sha256:bb629fd022723f8d5eb990a71f18572d29c8c1630e9f3cbd1577501599d22eef
+FROM chainguard/python:latest@sha256:f05174c45fa717309a5d504a976c12690eccd650efeac5221d1d53b32ff41e71
 
 LABEL maintainer="florian.stosse@gmail.com"
-LABEL lastupdate="2025-06-22"
+LABEL lastupdate="2025-06-29"
 LABEL author="Florian Stosse"
 LABEL description="FwHunt scanner v2.3.8, built using Python Chainguard base image"
 LABEL license="MIT license"
