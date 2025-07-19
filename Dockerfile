@@ -35,4 +35,4 @@ RUN pip install -r requirements.txt --no-cache-dir
 # Test run
 RUN python3 /fwhunt/venv/bin/fwhunt_scan_docker.py --help
 
-ENTRYPOINT ["/fwhunt/venv/bin/fwhunt_scan_analyzer.py"]
+ENTRYPOINT ["python3", "/fwhunt/venv/bin/fwhunt_scan_analyzer.py"]
