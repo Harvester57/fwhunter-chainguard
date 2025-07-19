@@ -18,9 +18,10 @@ RUN apk update && apk add meson ninja
 WORKDIR /rizin
 RUN git clone https://github.com/rizinorg/rizin
 WORKDIR /rizin/rizin
-RUN meson setup build
-RUN meson compile -C build
-RUN meson install -C build
+RUN meson setup build && \
+    meson compile -C build && \
+    meson install -C build && \
+    rm -rf /rizin
 
 USER nonroot
 WORKDIR /fwhunt
