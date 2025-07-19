@@ -7,6 +7,7 @@ ENV PYTHONUNBUFFERED=1
 ENV PATH="/fwhunt/venv/bin:$PATH"
 
 WORKDIR /fwhunt
+COPY requirements.txt .
 RUN python -m venv /fwhunt/venv
 
 # Cf. https://pypi.org/project/fwhunt-scan/
