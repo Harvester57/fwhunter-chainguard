@@ -21,4 +21,4 @@ ENV PATH="/fwhunt/venv/bin:$PATH"
 RUN pip install -r requirements.txt --no-cache-dir
 
 # Test run
-RUN fwhunt_scan -h
+RUN fwhunt-scan -h
