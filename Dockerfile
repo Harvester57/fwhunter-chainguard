@@ -29,3 +29,6 @@ ENV PYTHONUNBUFFERED=1
 ENV PATH="/venv/bin:$PATH"
 
 COPY --from=builder /fwhunt/venv /venv
+
+# Test run
+RUN fwhunt_scan -h
