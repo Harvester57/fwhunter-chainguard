@@ -10,7 +10,7 @@ WORKDIR /fwhunt
 RUN python -m venv /fwhunt/venv
 
 # Cf. https://pypi.org/project/fwhunt-scan/
-RUN pip install fwhunt-scan==2.3.8 --no-cache-dir
+RUN pip install -r requirements.txt --no-cache-dir
 
 FROM chainguard/python:latest@sha256:557411150431db773abad5967a1ec063f35f884828fa4c95c35b9078f3ac50ee
 

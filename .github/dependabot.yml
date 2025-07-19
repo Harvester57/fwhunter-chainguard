@@ -32,3 +32,14 @@ updates:
       applies-to: version-updates
       patterns:
       - "*"
+- package-ecosystem: "pip"
+  directory: "/"
+  commit-message:
+    prefix: "pip"
+  labels: [ 'chore' ]
+  assignees:
+  - "Harvester57"
+  schedule:
+    interval: "cron"
+    cronjob: "0 7 * * *"
+    timezone: "Europe/Paris"
