@@ -12,6 +12,17 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 ENV TZ="Europe/Paris"
 
+USER root
+RUN apk update && apk add meson ninja
+
+WORKDIR /rizin
+RUN git clone https://github.com/rizinorg/rizin
+WORKDIR /rizin/rizin
+RUN meson setup build
+RUN meson compile -C build
+RUN meson install -C build
+
+USER nonroot
 WORKDIR /fwhunt
 COPY requirements.txt .
 RUN python -m venv /fwhunt/venv
@@ -21,4 +32,6 @@ ENV PATH="/fwhunt/venv/bin:$PATH"
 RUN pip install -r requirements.txt --no-cache-dir
 
 # Test run
-RUN ls -R /fwhunt/
+RUN python3 /fwhunt/venv/bin/fwhunt_scan_docker.py --help
+
+ENTRYPOINT ["/fwhunt/venv/bin/fwhunt_scan_analyzer.py"]
