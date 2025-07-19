@@ -25,6 +25,7 @@ RUN meson install -C build
 USER nonroot
 WORKDIR /fwhunt
 COPY requirements.txt .
+COPY rules/ /tmp/rules
 RUN python -m venv /fwhunt/venv
 ENV PATH="/fwhunt/venv/bin:$PATH"
 
