@@ -1,5 +1,5 @@
 # Cf. https://hub.docker.com/r/chainguard/python/
-FROM chainguard/python:latest-dev@sha256:d29e35ac62304098fb9a462b094f3b51b9793e91eecd29d27d3f22bf2613d69e
+FROM chainguard/python:latest-dev@sha256:0f56f36b195810bb0a935a9750f5191f451fe1a8f4f0fc80dc1f0344bfdf9b01
 
 LABEL maintainer="florian.stosse@gmail.com"
 LABEL lastupdate="2025-06-29"
