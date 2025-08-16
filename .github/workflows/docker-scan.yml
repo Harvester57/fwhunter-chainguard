@@ -70,7 +70,7 @@ jobs:
         uses: anchore/scan-action@1638637db639e0ade3258b51db49a9a137574c3e # v6.5.1
         id: scan
         with:
-          add-cpes-if-none: true
+          cache-db: true
           fail-build: false
           sbom: "/tmp/${{ github.event.repository.name }}.cyclonedx-sbom.json"
           output-format: sarif
