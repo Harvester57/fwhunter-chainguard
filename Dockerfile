@@ -13,8 +13,7 @@ WORKDIR /rizin
 RUN \
     wget https://github.com/rizinorg/rizin/releases/download/$rz_version/rizin-$rz_version-static-x86_64.tar.xz && \
     tar -xJf rizin-$rz_version-static-x86_64.tar.xz && \
-    ls -ailh && \
-    rm -rf rizin-$rz_version-static-x86_64.tar.xz share/
+    rm -rf rizin-$rz_version-static-x86_64.tar.xz
 
 WORKDIR /fwhunt
 COPY requirements.txt .
