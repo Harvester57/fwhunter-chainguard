@@ -7,6 +7,9 @@ LABEL author="Florian Stosse"
 LABEL description="FwHunt scanner v2.3.8, built using Python Chainguard base image"
 LABEL license="MIT license"
 
+# Cf. https://github.com/rizinorg/rizin/releases
+ARG rz_version=v0.8.1
+
 ENV LANG=C.UTF-8
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
@@ -16,7 +19,7 @@ USER root
 RUN apk update && apk add meson ninja
 
 WORKDIR /rizin
-RUN git clone https://github.com/rizinorg/rizin
+RUN git clone --branch $rz_version https://github.com/rizinorg/rizin --depth 1
 WORKDIR /rizin/rizin
 RUN meson setup build && \
     meson compile -C build && \
