@@ -1,5 +1,5 @@
 # Cf. https://hub.docker.com/r/chainguard/python/
-FROM chainguard/python:latest-dev@sha256:36d6d83b9141616b1595ed179dc6a4bc6966e3c17142d461dedf72125791628a AS builder
+FROM chainguard/python:latest-dev@sha256:f0342a9d65009acf1c72146a7a1ea408cf4d65b3adff2dcbe23a736056b115cc AS builder
 
 # Cf. https://github.com/rizinorg/rizin/releases
 ARG rz_version=v0.8.1
