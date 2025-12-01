@@ -1,6 +1,6 @@
 # Cf. https://hub.docker.com/r/chainguard/python/
 ARG BUILDKIT_SBOM_SCAN_STAGE=true
-FROM chainguard/python:latest-dev@sha256:00b05f1961b76ed21007e9c94ef5f40bfdbdccb8320bbe795fdbf21de9625811 AS builder
+FROM chainguard/python:latest-dev@sha256:a124a35622b5a7c085e4590d59b98037d4f055498e595d4bb20180e9db2ada31 AS builder
 
 # Cf. https://github.com/rizinorg/rizin/releases
 ARG rz_version=v0.8.1
