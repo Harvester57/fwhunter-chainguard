@@ -10,6 +10,8 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 ENV TZ="Europe/Paris"
 
+RUN apk add clang
+
 WORKDIR /rizin
 RUN \
     wget https://github.com/rizinorg/rizin/releases/download/$rz_version/rizin-$rz_version-static-x86_64.tar.xz && \
