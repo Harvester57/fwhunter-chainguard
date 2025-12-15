@@ -1,6 +1,6 @@
 # Cf. https://hub.docker.com/r/chainguard/python/
 ARG BUILDKIT_SBOM_SCAN_STAGE=true
-FROM chainguard/python:latest-dev@sha256:2a649c948b4bb7a5950845a4adadbf98032b68e4544ead60472ba52f3c7365fb AS builder
+FROM chainguard/python:latest-dev@sha256:29a88e7dfc1f147ccb956e2541452e77818c1789e57a108e87879eba9499d9df AS builder
 
 # Cf. https://github.com/rizinorg/rizin/releases
 ARG rz_version=v0.8.1
@@ -25,7 +25,7 @@ RUN python -m venv /fwhunt/venv
 # Cf. https://pypi.org/project/fwhunt-scan/
 RUN pip install -r requirements.txt --no-cache-dir
 
-FROM chainguard/python:latest@sha256:ca9d5a51ade3c4d541e73be4a7357d45421f13c431c2a74c8202c116261326f9
+FROM chainguard/python:latest@sha256:b14c51dcd50db3f476eba232515c9e343058a546c766873991af1e4726f8dbaf
 
 LABEL maintainer="florian.stosse@gmail.com"
 LABEL lastupdate="2025-08-16"
