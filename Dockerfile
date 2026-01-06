@@ -12,7 +12,7 @@ ENV LANG=C.UTF-8 \
     PYTHONUNBUFFERED=1 \
     TZ="Europe/Paris"
 
-RUN apk update && apk upgrade && apk add clang
+RUN apk update && apk upgrade --available
 
 WORKDIR /rizin
 RUN \
