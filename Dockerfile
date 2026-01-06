@@ -2,13 +2,15 @@
 ARG BUILDKIT_SBOM_SCAN_STAGE=true
 FROM chainguard/python:latest-dev@sha256:2ea83e2dc2afc90e617925c7af227e88f52cd4b266aad1714c55091a21309da4 AS builder
 
+USER root
+
 # Cf. https://github.com/rizinorg/rizin/releases
 ARG rz_version=v0.8.1
 
-ENV LANG=C.UTF-8
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-ENV TZ="Europe/Paris"
+ENV LANG=C.UTF-8 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    TZ="Europe/Paris"
 
 RUN apk add clang
 
@@ -33,10 +35,10 @@ LABEL author="Florian Stosse"
 LABEL description="FwHunt scanner v2.3.8, built using Python Chainguard base image"
 LABEL license="MIT license"
 
-ENV LANG=C.UTF-8
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-ENV TZ="Europe/Paris"
+ENV LANG=C.UTF-8 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    TZ="Europe/Paris"
 
 COPY --from=builder /fwhunt/venv /venv
 ENV PATH="/venv/bin:$PATH"
