@@ -1,6 +1,6 @@
 # Cf. https://hub.docker.com/r/chainguard/python/
 ARG BUILDKIT_SBOM_SCAN_STAGE=true
-FROM chainguard/python:latest-dev@sha256:197dc1b7c30dc150d8f8e7c4f9d314674ea41a95602f97fd4a4cd84d7fa7f480 AS builder
+FROM chainguard/python:latest-dev@sha256:24ab6598248da608a35ff3d5cd958205b819fe9d8265581c2f364ddfc6abd753 AS builder
 
 USER root
 
@@ -27,7 +27,7 @@ RUN python -m venv /fwhunt/venv
 # Cf. https://pypi.org/project/fwhunt-scan/
 RUN pip install -r requirements.txt --no-cache-dir
 
-FROM chainguard/python:latest@sha256:dc6d95fe490f76869974e1dbe96d4db01c06d194030467a9501584c19466bb30
+FROM chainguard/python:latest@sha256:7b27b4bfa2836f4c7007238658754d94a06ba84461a7720f2e07e284c6e564a1
 
 LABEL maintainer="florian.stosse@gmail.com"
 LABEL lastupdate="2025-08-16"
