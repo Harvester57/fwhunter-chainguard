@@ -5,14 +5,12 @@ FROM chainguard/python:latest-dev@sha256:d1dd83447d5113f8b3eeb67c4863db2c8198952
 USER root
 
 # Cf. https://github.com/rizinorg/rizin/releases
-ARG rz_version=v0.8.1
+ARG rz_version=v0.8.2
 
 ENV LANG=C.UTF-8 \
     PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     TZ="Europe/Paris"
-
-RUN apk update && apk upgrade --available
 
 WORKDIR /rizin
 RUN \
@@ -41,9 +39,8 @@ ENV LANG=C.UTF-8 \
     TZ="Europe/Paris"
 
 COPY --from=builder /fwhunt/venv /venv
-ENV PATH="/venv/bin:$PATH"
 COPY --from=builder /rizin /rizin
-ENV PATH="/rizin/bin:$PATH"
 COPY rules/ /tmp/rules
+ENV PATH="/venv/bin:/rizin/bin:$PATH"
 
 ENTRYPOINT ["python3", "/venv/bin/fwhunt_scan_analyzer.py"]
