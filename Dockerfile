@@ -27,20 +27,19 @@ RUN pip install -r requirements.txt --no-cache-dir
 
 FROM chainguard/python:latest@sha256:1f37785e5cdb70151f36aaa15e1e3cef4571424dbefbf4b0d8a9222535cb13ff
 
-LABEL maintainer="florian.stosse@gmail.com"
-LABEL lastupdate="2025-08-16"
-LABEL author="Florian Stosse"
-LABEL description="FwHunt scanner v2.3.8, built using Python Chainguard base image"
-LABEL license="MIT license"
+LABEL org.opencontainers.image.authors="Florian Stosse <florian.stosse@gmail.com>"
+LABEL org.opencontainers.image.created="2025-08-16"
+LABEL org.opencontainers.image.description="FwHunt scanner v2.3.8, built using Python Chainguard base image"
+LABEL org.opencontainers.image.licenses="MIT license"
 
 ENV LANG=C.UTF-8 \
     PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    TZ="Europe/Paris"
+    TZ="Europe/Paris" \
+    PATH="/venv/bin:/rizin/bin:$PATH"
 
 COPY --from=builder /fwhunt/venv /venv
 COPY --from=builder /rizin /rizin
 COPY rules/ /tmp/rules
-ENV PATH="/venv/bin:/rizin/bin:$PATH"
 
 ENTRYPOINT ["python3", "/venv/bin/fwhunt_scan_analyzer.py"]
